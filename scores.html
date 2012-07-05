@@ -1,0 +1,21 @@
+<div class="row-fluid" ng-controller="ScoresCtrl">
+    <div class="span12 regular-unit">
+        <h2 class="span12">Résultats</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Question</th>
+                <th>Réponse choisie</th>
+                <th>Réponse correcte</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="score in getScores()">
+                <td>{{ score.question_text }}</td>
+                <td><span class="label {{when(score.correct, 'label-success', 'label-important')}}">{{ score.chosen_answer_text }}</span></td>
+                <td>{{ score.correct_answer_text }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

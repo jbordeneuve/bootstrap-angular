@@ -1,0 +1,43 @@
+<div class="row-fluid" ng-controller="QuestionCtrl">
+    <div id="board" class="span9">
+        <div class="question-screen">
+            <h1>{{current.text}}</h1>
+        </div>
+        <div ng-show="!current.answered" class="btn-group">
+            <button class="btn btn-primary btn-large" ng-repeat="answer in current.answers"
+                    ng-click="checkAnswer(answer.answer_id)">{{answer.text}}
+            </button>
+        </div>
+        <div ng-show="current.answered" class="row-fluid">
+            <div class="span6">
+                <div ng-show="!current.correct" class="alert alert-error alert-block">
+                    <strong>Fail!</strong> La bonne réponse était <strong>{{current.correctAnswer.text}}</strong>
+                </div>
+                <div ng-show="current.correct" class="alert alert-success alert-block">
+                    <strong>Success!</strong> Cette réponse est correcte.
+                </div>
+            </div>
+            <div class="span3">
+                <a ng-show="hasNextQuestion()" ng-click="nextQuestion()" class="btn btn-primary btn-large">Question
+                    suivante »</a>
+                <a ng-show="!hasNextQuestion()" href="#/scores" class="btn btn-primary btn-large">Tableau des scores »</a>
+            </div>
+        </div>
+    </div>
+    <div class="span3">
+        <ul id="questions" class="nav nav-list questions-list">
+            <li class="nav-header">Answer us ! Please.</li>
+            <li ng-repeat="question in questions" class="{{when(isCurrent(question), 'active', '')}}">
+                <i ng-show="!question.answered" class="icon-question-sign"></i>
+                <i ng-show="question.answered && question.correct" class="icon-ok-sign icon-white"></i>
+                <i ng-show="question.answered && !question.correct" class="icon-remove-sign icon-white"></i>
+                {{question.title}}
+            </li>
+            <li>
+            </li>
+        </ul>
+        <span class="badge badge-success">correct : {{correctsCount()}}</span>
+        <span class="badge badge-important">wrong : {{incorrectsCount()}}</span>
+        <span class="badge">total : {{questions.length}}</span>
+    </div>
+</div>

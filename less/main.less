@@ -1,0 +1,53 @@
+@import "lib/bootstrap.less";
+
+body {
+    background-image: url("../img/background_pattern.png");
+    padding-top: 60px;
+}
+
+#questions li.active {
+    background-color: lighten(@linkColor, 15%);
+}
+
+.regular-unit {
+    .hero-unit;
+    background-color: @white;
+}
+
+#board {
+    margin-bottom: 22px;
+}
+
+.brand {
+    font-family: 'Pacifico', cursive;
+    text-shadow: @black 0px 3px 3px;
+}
+
+.question-screen {
+    .hero-unit;
+    box-shadow: 0 0 30px @black inset;
+}
+
+.questions-list {
+    .well;
+    border: none;
+    background-color: darken(@grayDark, 2%);
+    box-shadow: 0 0 30px darken(@grayDark, 10%) inset;
+    color: @white;
+    .nav-header {
+        text-shadow: none;
+    }
+}
+
+.btn-board {
+    .btn;
+    .btn-primary;
+    .btn-large;
+    padding: 13px 14px;
+}
+
+.footer {
+    p {
+        color: @white;
+    }
+}

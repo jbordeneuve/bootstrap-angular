@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="qcm-app">
+<head>
+    <meta charset="utf-8">
+    <title>My shiny app</title>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet/less" href="less/main.less" />
+    <script src="js/lib/less-1.3.0.min.js"></script>
+    <script src="js/lib/angular-1.0.1.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/player-resource.js"></script>
+    <script src="js/question-resource.js"></script>
+    <script src="js/question-service.js"></script>
+    <script src="js/player-service.js"></script>
+</head>
+<!-- Disclaimer : this website is NOT optimized for prehistoric browsers, dinosaurs please stay extinct -->
+<body>
+<div class="navbar navbar-fixed-top" ng-controller="MainCtrl">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#/index">My shiny app</a>
+
+            <div ng-show="player()" class="btn-group pull-right">
+                <a href="#" class="btn dropdown-toggle">
+                    <i class="icon-user"></i> {{playerName()}}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" ng-view>
+</div>
+<div class="container">
+    <footer class="footer row-fluid">
+        <p class="span3"><strong>This</strong> is pure filler text for a footer, it means nothing and you shouldn't
+            really waste your time reading it.
+            Since it's not long enough yet i'l say it again: really, this paragraph has exactly zero dot zero value.</p>
+        <blockquote class="span3">
+            <p>A system of morality which is based on relative emotional values is a mere illusion, a thoroughly vulgar
+                conception which has nothing sound in it and nothing true.</p>
+            <small>Socrates</small>
+        </blockquote>
+        <blockquote class="span3">
+            <p>When the mob and the press and the whole world tell you to move, your job is to plant yourself like a
+                tree beside the river of truth, and tell the whole world—"No. You move."</p>
+            <small>Captain America</small>
+        </blockquote>
+        <blockquote class="span3">
+            <p>A state arises, as I conceive, out of the needs of mankind; no one is self-sufficing, but all of us have
+                many wants.</p>
+            <small>Plato</small>
+        </blockquote>
+    </footer>
+</div>
+</body>
+</html>

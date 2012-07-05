@@ -1,0 +1,40 @@
+<div class="row-fluid" ng-controller="SetupCtrl">
+    <div class="row-fluid">
+        <div class="span6 regular-unit">
+            <h2>Setup</h2>
+
+            <form novalidate name="playerData">
+                <div class="control-group {{when(isInvalid(playerData.firstname), 'error', '')}}">
+                    <label class="control-label" for="firstname">What is your first name?</label>
+                    <input id="firstname" name="firstname" type="text" ng-model="player.firstName" required ng-minlength="2" ng-pattern="/^[a-zA-Z]+$/" />
+                    <span ng-show="isInvalid(playerData.firstname) && playerData.firstname.$error.required" class="help-inline">Required.</span>
+                    <span ng-show="isInvalid(playerData.firstname) && playerData.firstname.$error.minlength" class="help-inline">More than 2 characters.</span>
+                    <span ng-show="isInvalid(playerData.firstname) && playerData.firstname.$error.pattern" class="help-inline">Invalid characters.</span>
+                </div>
+                <div class="control-group">
+                    <label for="lastname">What is your last name?</label>
+                    <input id="lastname" type="text" ng-model="player.lastName" required/>
+                </div>
+                <div class="control-group">
+                    <label for="movie">What is you favourite scary movie?</label>
+                    <input id="movie" type="text" ng-model="player.scaryMovie" required/>
+                </div>
+                <div class="control-group"><label for="color">What is you favourite color?</label>
+                    <select id="color" ng-model="player.color">
+                        <option>blue</option>
+                        <option>red</option>
+                        <option>green</option>
+                    </select>
+                </div>
+                <button ng-click="save(player)" ng-disabled="playerData.$invalid"
+                        class="btn btn-primary btn-large">Play!
+                </button>
+            </form>
+        </div>
+        <div class="span6 hero-unit">
+            <h2>What is this?</h2>
+            <img src="http://placekitten.com/400/300"/>
+            <p>This is a small demo app for Boostrap and AngularJS.</p>
+        </div>
+    </div>
+</div>
